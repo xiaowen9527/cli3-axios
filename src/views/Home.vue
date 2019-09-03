@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <button @click="aaa">button</button>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+    name: "home",
+    methods: {
+        async aaa() {
+            let params = {
+                remeber: false,
+                account: "zhouwei",
+                password: "sd928928"
+            };
+            // this.$service
+            //     .getChengpin(data)
+            //     .then(res => {
+            //         console.log(res);
+            //     })
+            //     .catch(err => {
+            //         console.log(err);
+            //     });
+                let {data} = await this.$service.getChengpin(params)
+                console.log(data);
+                
+                // window.open(data)
+        }
+    }
+};
 </script>
+
+<style lang="scss" scoped>
+</style>
